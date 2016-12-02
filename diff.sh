@@ -14,7 +14,10 @@ git difftool -y -x "diff -c" $1 $2 | awk '{if ($1=="+")print $1;}' >> ./tempFile
 #count the no of deletions
 git difftool -y -x "diff -c" $1 $2 | awk '{if ($1=="-")print $1;}' >>./tempFiles/diffDeletions.txt
 
+
+
 #below lines are commented out as this is now only been used to save the diff to the relevant files
+
 # for testing echoing the no of lines
 #noChanges=$(cat ./tempFiles/diffChanges.txt | wc -l)
 #echo "no of changes" $noChanges
