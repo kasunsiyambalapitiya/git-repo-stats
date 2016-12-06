@@ -12,7 +12,7 @@ rm -rf tempFiles;	mkdir tempFiles
 
 
 #getting only the comments from master branch from given period of time
-								git log --pretty=format:%H --since="$date" master >"$location"
+								git log --pretty=format:%H --since="$date" --no-merges master --reverse >"$location"
 								echo "list of commits are stored in a file from $date onwards"
 
 }
