@@ -12,11 +12,17 @@ mkdir -p tempFiles
 #filtering only the lines modified
 #cat ./tempFiles/diffChanges.txt | sed -n -e "/^\*\*\*/,/^---/{p;}" | awk '{if($1=="!") print $1;}' > ./tempFiles/diffChangesAfterSed.txt
 
+#pipe all diff to a file
+git difftool -y -x "diff -c" $1 $2 >>./tempFiles/diffAll.txt
+
+
 #Filtering only the lines that are modified
 git difftool -y -x "diff -c" $1 $2 | awk '{print $1;}'|sed -n -e "/^\*\*\*/,/^---/{p;}" | awk '{if ($1=="!") print $1;}' >> ./tempFiles/diffChanges.txt
 
 #count the no of additions
 git difftool -y -x "diff -c" $1 $2 | awk '{if ($1=="+")print $1;}' >> ./tempFiles/diffAdditions.txt
+#to add the additional lines made throught modifications
+git difftool -y -x "diff -c" $1 $2 | awk '{print $1;}'|sed -n -e "/^---/,/^\*\*\*/{p;}" | awk '{if ($1=="!") print $1;}' >> ./tempFiles/diffAfterChanges.txt
 
 #count the no of deletions
 git difftool -y -x "diff -c" $1 $2 | awk '{if ($1=="-")print $1;}' >> ./tempFiles/diffDeletions.txt
