@@ -3,7 +3,7 @@
 
 #saving the no of commits in between the two commits
 saveListOfCommits(){
-				mkdir -p tempFiles
+rm -rf tempFiles;	mkdir tempFiles
 								location=./tempFiles/ListOfCommits.txt
 								outputDirectory=./tempFiles/
 #combining the word
