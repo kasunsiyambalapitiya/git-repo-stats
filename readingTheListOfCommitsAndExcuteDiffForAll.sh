@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #Reading the file content line by line
-#saving the file name to a variable
 
+#saving file location, and git repo to variables
 filename=$1
-
+gitRepoLocation=$2
 
 #creating an array by reading the file
 
@@ -21,10 +21,10 @@ for ((i=0;i<commitArrayLength;i++));
 do 
 #echo ${commitArray[i]}
 #echo ${commitArray[++i]}
-./diff.sh ${commitArray[i]} ${commitArray[++i]}
+./diff.sh $gitRepoLocation ${commitArray[i]} ${commitArray[++i]}
 ((--i))
 
 				done
 
-				echo diff are saved in the tempFiles directory
+				echo diffs are saved in the tempFiles directory
 
