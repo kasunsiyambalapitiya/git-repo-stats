@@ -19,12 +19,19 @@ relevant arguments as follows,
 then the output will be 
 
 no of lines changed 6118
+
 no of lines added 141893
+
 no of lines deleted 112403
+
 total no of lines in the repo 425987
+
 percentage of lines changes-----------------------
+
 percentage of changed lines 1 %
+
 percentage of added lines 33 %
+
 percentage of deleted lines 26 %
 
 
