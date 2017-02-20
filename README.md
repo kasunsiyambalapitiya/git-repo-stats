@@ -2,19 +2,25 @@
 
 This is a script that can be used to exactly identify the no of lines that have been added, deleted and modified in a git repository
 from a specific period of time in the past to the current state and to obtain percentages of them to the total no of lines in the
-repository.
+repository. Since this script is not using any third party programs (cloc and etc) this script is highly durable.
 
-Since this script is not using any third party programs (cloc and etc) this script is highly durable.
+**Installation Prerequisites**
+
+Prior to using this program you need to have install git in your system. You can follow this link to install git relevant to your  system.
+
+Since this script use awk commands your system must be able to run awk languages. If your are using a Linux based system they already comes with mawk pre installed so you don’t need to install it again, but if your are using Windows platform follow this link to install awk in your Windows platform.
+
+**Running the program**
 
 To use this script, first you need to clone the repository that you wish to get statistics if you don't have it in a local drive.
-Once afer cloning is done you run this script with the giving absolute location of the cloned repository and the relevant time
+Once after cloning is done you run this script with the giving absolute location of the cloned repository and the relevant time
 period that you wish to get statistics as command line arguments.
 
 For example lets say I have a cloned repository in my `/home/kasun/workspace/clonedRepo` location and I need to get the statistics 
 about the no of lines added, deleted and modified from 6 months ago. Then I need to run the script in the terminal by giving the
 relevant arguments as follows,
 
-./getStats.sh /home/kasun/workspace/clonedRepo 6 months ago
+`./getStats.sh /home/kasun/workspace/clonedRepo 6 months ago`
 
 then the output will be 
 
