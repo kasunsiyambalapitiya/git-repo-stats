@@ -48,6 +48,7 @@ readingTheListOfCommitsAndExcuteDiffForAll(){
 								echo diffs are saved in the tempFiles directory
 
 
+output ${commitArray[0]}
 
 }
 
@@ -93,6 +94,8 @@ noDeletions=$(cat "$outputDirectory"/diffDeletions.txt | wc -l)
 echo "no of lines deleted" $noDeletions
 
 #Counting the total no of lines in the repo-----------------------------------------------------------------
+#Checking out to the earliest commit with creating a new branch
+git -C "$repoLocation" checkout -b branchAtEarliestPoint $1
 
 totalNoOfLinesInTheRepo=$(git -C "$repoLocation" diff --shortstat $(git -C "$repoLocation" hash-object -t tree /dev/null) | cut -d " " -f5)
 echo total no of lines in the repo $totalNoOfLinesInTheRepo
@@ -109,7 +112,9 @@ echo percentage of changed lines $changesPercentage %
 echo percentage of added lines $additionPercentage %
 echo percentage of deleted lines $deletionPercentage %
 
-
+#checking out to the master branch and deleting the temporary branch named branchAtEarliestPoint
+git -C "$repoLocation" checkout master
+git -C "$repoLocation" branch -d branchAtEarliestPoint
 
 }
 
@@ -117,5 +122,3 @@ echo percentage of deleted lines $deletionPercentage %
 #calling method
 saveListOfCommits
 readingTheListOfCommitsAndExcuteDiffForAll
-output
-
