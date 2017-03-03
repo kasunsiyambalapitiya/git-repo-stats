@@ -1,4 +1,4 @@
-# gitTestingPart1
+# git-repo-stats
 
 This is a script that can be used to exactly identify the no of lines that have been added, deleted and modified in a git repository
 from a specific period of time in the past to the current state of the repository and to obtain percentages of them to the total no of lines in the

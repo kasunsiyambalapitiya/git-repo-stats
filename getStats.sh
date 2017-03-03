@@ -30,11 +30,11 @@ readingTheListOfCommitsAndExcuteDiffForAll(){
 
 				readarray commitArray < $locationOfCommitsList
 
-								echo ${commitArray[@]}
+#								echo ${commitArray[@]}
 #finding the number of lines in the array
 				commitArrayLength=${#commitArray[@]}
 				echo no of elements in the array  $commitArrayLength
-								echo indexes of the array ${!commitArray[@]}
+#								echo indexes of the array ${!commitArray[@]}
 
 #for loop for running the diff between consecutive commits in the array
 				for ((i=0;i<commitArrayLength;i++));
